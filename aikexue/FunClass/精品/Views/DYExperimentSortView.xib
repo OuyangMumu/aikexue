@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DYExperimentSortView">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="wTR-jh-Mtj"/>
+                <outlet property="tableOne" destination="21E-Di-gAE" id="9sa-tb-z5p"/>
+                <outlet property="tableOneWidth" destination="boG-kr-IKR" id="MZc-Va-niS"/>
+                <outlet property="tableTwo" destination="wTY-rb-sJ9" id="0NQ-ad-HJE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pkk-FR-UU3">
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="220"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="21E-Di-gAE">
+                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="200"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" id="LsV-9l-Y0G"/>
+                                <constraint firstAttribute="width" id="boG-kr-IKR"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="3EH-by-1KW"/>
+                                <outlet property="delegate" destination="-1" id="cpE-2l-Kug"/>
+                            </connections>
+                        </tableView>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wTY-rb-sJ9">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="200"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="62K-Mx-XsX"/>
+                                <outlet property="delegate" destination="-1" id="bfn-jv-P7p"/>
+                            </connections>
+                        </tableView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book2" translatesAutoresizingMaskIntoConstraints="NO" id="cqk-U7-7C8">
+                            <rect key="frame" x="0.0" y="200" width="768" height="20"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="21E-Di-gAE" firstAttribute="top" secondItem="Pkk-FR-UU3" secondAttribute="top" id="4S3-58-hir"/>
+                        <constraint firstItem="21E-Di-gAE" firstAttribute="leading" secondItem="Pkk-FR-UU3" secondAttribute="leading" id="4dM-rd-4b8"/>
+                        <constraint firstItem="cqk-U7-7C8" firstAttribute="leading" secondItem="Pkk-FR-UU3" secondAttribute="leading" id="4mY-Ox-y4V"/>
+                        <constraint firstAttribute="height" constant="220" id="U4u-3N-8zy"/>
+                        <constraint firstAttribute="trailing" secondItem="cqk-U7-7C8" secondAttribute="trailing" id="Va6-5t-WqG"/>
+                        <constraint firstAttribute="bottom" secondItem="cqk-U7-7C8" secondAttribute="bottom" id="e4w-3P-Ec5"/>
+                        <constraint firstItem="wTY-rb-sJ9" firstAttribute="bottom" secondItem="21E-Di-gAE" secondAttribute="bottom" id="eAU-mu-Ufm"/>
+                        <constraint firstItem="wTY-rb-sJ9" firstAttribute="leading" secondItem="21E-Di-gAE" secondAttribute="trailing" id="kTZ-pl-byc"/>
+                        <constraint firstAttribute="trailing" secondItem="wTY-rb-sJ9" secondAttribute="trailing" id="m7n-3m-eVP"/>
+                        <constraint firstItem="cqk-U7-7C8" firstAttribute="top" secondItem="wTY-rb-sJ9" secondAttribute="bottom" id="mJp-wv-9bB"/>
+                        <constraint firstItem="wTY-rb-sJ9" firstAttribute="top" secondItem="Pkk-FR-UU3" secondAttribute="top" id="mTs-Jm-xfn"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyB-hP-b3W">
+                    <rect key="frame" x="0.0" y="220" width="768" height="804"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="hideSelf:" destination="-1" eventType="touchUpInside" id="yCy-FR-YM2"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="KyB-hP-b3W" firstAttribute="top" secondItem="Pkk-FR-UU3" secondAttribute="bottom" id="0ZV-ub-vbX"/>
+                <constraint firstAttribute="trailing" secondItem="KyB-hP-b3W" secondAttribute="trailing" id="1z5-ys-mxE"/>
+                <constraint firstItem="KyB-hP-b3W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="J4f-fu-ofd"/>
+                <constraint firstItem="Pkk-FR-UU3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PPg-yR-pGZ"/>
+                <constraint firstItem="Pkk-FR-UU3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZUc-c5-uH0"/>
+                <constraint firstAttribute="trailing" secondItem="Pkk-FR-UU3" secondAttribute="trailing" id="fSD-SZ-Y9Q"/>
+                <constraint firstAttribute="bottom" secondItem="KyB-hP-b3W" secondAttribute="bottom" id="ktG-jF-a30"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="296" y="-436"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="book2" width="320" height="60"/>
+    </resources>
+</document>

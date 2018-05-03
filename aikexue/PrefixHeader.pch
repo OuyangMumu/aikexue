@@ -1,0 +1,287 @@
+//
+//  PrefixHeader.pch
+//  aikexue
+//
+//  Created by Ray on 2017/7/27.
+//  Copyright © 2017年 io. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+
+#import <SDWebImage/UIImageView+WebCache.h>
+
+/// pod
+#import "WXApi.h"
+#import "WechatAuthSDK.h"
+#import <Bugly/Bugly.h>
+#import "JPUSHService.h"
+#import "AFNetworking.h"
+#import "AFNetworkActivityIndicatorManager.h"
+#import "AFNetworkReachabilityManager.h"
+#import "YYKit.h"
+#import "SAMKeychain.h"
+#import "MJRefresh.h"
+#import "MBProgressHUD+DYHUD.h"
+#import <UShareUI/UShareUI.h>
+
+// 基类
+#import "AppDelegate.h"
+#import "Reachability.h"
+#import "DYBaseNavController.h"
+#import "DYBaseViewController.h"
+#import "ServeUrlModel.h"
+#import "DYUserCouponController.h"
+#import "DYBindLoginView.h"
+//自定义 UI
+#import "DY_CollectionView.h"
+#import "DY_TableView.h"
+
+
+///项目H文件
+#import "DYNetworking.h"
+#import "NSObject+YYModel.h"
+#import "UserManager.h"
+#import "Utils.h"
+#import "DYExperimentMainCtl.h"
+#import "Downloader.h"
+#import "Puerchaser.h"
+#import "DYExperimentModel.h"
+#import "DYExperimentDetaileVC.h"
+#import "DYExperimentActionView.h"
+#import "NSDate+Categoty.h"
+#import "DYAKXUserModel.h"
+#import "DYCoinPersonInfo.h"
+
+
+#ifdef DEBUG
+#define OYLog(...) NSLog(@"%s 第%d行\n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#define OYLog(...)
+#endif
+
+
+#define OYWeakObj(type)  __weak typeof(type) weak##type = type ;
+#define OYStrongObj(type)  __strong typeof(type) type = weak##type ;
+
+// view圆角
+#define OYViewBorderRadius(View, Radius, Width, Color)\
+\
+[View.layer setCornerRadius:(Radius)];\
+[View.layer setMasksToBounds:YES];\
+[View.layer setBorderWidth:(Width)];\
+[View.layer setBorderColor:[Color CGColor]];
+
+//获取图片资源
+#define OYGetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
+
+//获取temp
+#define OYPathTemp NSTemporaryDirectory()
+//获取沙盒 Document
+#define OYPathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+
+//获取沙盒 Cache
+#define OYPathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+//NSString WithFormat
+#define OYStringFormat(f, ...)      [NSString stringWithFormat:f, ## __VA_ARGS__]
+
+#define OYNOTIF_ADDSELF(name, SEL)     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(SEL) name:name object:nil]
+#define  OYNOTIF_POST(name,object)     [[NSNotificationCenter defaultCenter]postNotificationName:name object:object]
+
+#define OYNOTIF_REMVSELF()       [[NSNotificationCenter defaultCenter] removeObserver:self]
+
+//RGB 颜色
+#define OYRGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+#define OYRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+// 字体颜色16进制0x
+#define OYcolorWith0xColor(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define  OYClearColor  [UIColor clearColor]
+
+//系统半透明主题色
+#define  OYSysAlpha(view) \
+[view setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];\
+[view setTintColor:[UIColor colorWithRed:0 green:0.48 blue:1 alpha:1]]
+
+
+//字体
+#define  OYSysFont(size)  [UIFont systemFontOfSize:size]
+
+//空判断
+#define notNilOrNull(_ref)   (((_ref) != nil) && (![(_ref) isEqual:[NSNull null]]))
+
+//字符串是否为空
+#define OYStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || ([str length] < 1) ? (YES) : (NO))
+
+//数组是否为空
+#define OYArrayIsEmpty(array) (array == nil || [array isKindOfClass:[NSNull class]] || array.count == 0)
+
+
+#define  OYImageLayer(name)  (__bridge id)[UIImage imageNamed:name].CGImage;
+
+
+#define OYbelongViewController  - (UIViewController *)belongViewController {\
+for (UIView *next = [self superview]; next; next = next.superview) {\
+UIResponder* nextResponder = [next nextResponder];\
+if ([nextResponder isKindOfClass:[UIViewController class]]) {\
+return (UIViewController *)nextResponder;\
+}\
+}\return nil;}
+
+//单利
+#define OYSingleton_h(name) +(instancetype)shared##name;
+
+#define OYSingleton_m(name)  +(instancetype)shared##name{ \
+static id instance = nil; \
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+instance = [[self alloc] init];\
+});\
+return instance;\
+}\
+\
++ (instancetype)allocWithZone:(struct _NSZone *)zone {\
+static id instance = nil;\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+instance = [super allocWithZone:zone];\
+});\
+return instance;\
+}\
+\
+- (id)copyWithZone:(nullable NSZone *)zone{\
+return self;\
+}
+
+//空判断
+#define IsNilOrNull(_ref)   (((_ref) == nil) || ([(_ref) isEqual:[NSNull null]]))
+
+//需要传入返回时间格式
+#define GM_TIME_M(A,B) [Utils timeStringWith:A formatter:B]
+
+
+#define isIPhoneX ([UIScreen mainScreen].bounds.size.height==812.f ? (YES) : (NO))
+
+//导航栏高度
+#define  OYNavBarHeight  (isIPhoneX ? 88 : 64)
+//底部Tabbar 高度
+#define OYTabBarHeight  (isIPhoneX ? 83 : 49)
+//状态栏高度
+#define  OYStatusBarHeight  (isIPhoneX ? 44 : 20)
+
+
+#define FRAM_X(X)						(X.frame.origin.x)
+#define FRAM_Y(X)						(X.frame.origin.y)
+#define FRAM_W(X)						(X.frame.size.width)
+#define FRAM_H(X)						(X.frame.size.height)
+
+
+//系统半透明主题色
+#define  OYSysAlpha(view) \
+[view setBackgroundColor:[UIColor colorWithWhite:0 alpha:0.4]];\
+[view setTintColor:[UIColor colorWithRed:0 green:0.48 blue:1 alpha:1]]
+
+
+
+//大洋
+#define  DYWarningColor  [UIColor colorWithRed:(253)/255.0 green:(162)/255.0 blue:(69)/255.0 alpha:1]
+
+#define  DYTipMessageNetErr @"网络异常,请稍后再试"
+
+//提示语显示时间
+#define  DYMBProgressTimer  2
+
+
+#define ISPAD [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad
+
+#define GM_SCREEN [UIScreen mainScreen].bounds
+#define GM_SCREEN_S [UIScreen mainScreen].bounds.size
+#define GM_SCREEN_W [UIScreen mainScreen].bounds.size.width
+//用户
+#define GM_User [UserManager shareUser]
+
+//项目 Appdelegate
+#define GM_APP (AppDelegate *)[[UIApplication sharedApplication] delegate]
+
+//网络请求管理类
+#define GM_NetWorkStatus  [DYNetworking sharedDYNetworking].networkStats
+
+//新的切换服务器--------------------⚔
+#define VER_SRV [[ServeUrlModel sharedServeUrlModel] ver]
+
+#define MAIN_SRV  [[ServeUrlModel sharedServeUrlModel] main]
+
+#define SSO_SRV  [[ServeUrlModel sharedServeUrlModel] sso]
+
+#define  COCOS_SRV [[ServeUrlModel sharedServeUrlModel] cocos]
+
+#define  VerifyType   [[ServeUrlModel sharedServeUrlModel] verifyType]
+
+#define  FS_url   [[ServeUrlModel sharedServeUrlModel] fs_url]
+#define  SHARE_url    [[ServeUrlModel sharedServeUrlModel] share_url]
+#define  ORDER    [[ServeUrlModel sharedServeUrlModel] order]
+
+#define  LoginSuccessNotification  @"LoginSuccessNotification"
+
+//默认占位图
+#define  PlaceholderImage  [UIImage imageNamed:@"loading"]
+#define IconPlaceholderImage [UIImage imageNamed:@"rcp_img_user_head"]
+
+#define  ListEmptyImageString  @"搜索失败"
+#define  ListEmptyTipString  @"暂时没有内容噢..."
+#define  ListNetERROTImageString  @"搜索失败"
+#define  ListNetERROTTipString  @"网络又挂啦,呜呜..."
+
+
+#define NAV_BAR_COLOR  OYRGBAColor(244,180,4,1)
+#define price_Free_color OYRGBAColor(86,165,44,1)
+
+
+//下载购买通知
+#define N_PURCHASED @"purchased"
+#define N_PURCHASFail @"purchasfail"
+#define N_PURCHASING @"purchasing"
+#define N_DOWNProcess @"process"
+#define N_TASK_ADDED @"task-added"
+#define N_DOWNLOADED @"downloaded"
+
+#define  UnZipPath   [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"/cocos"]
+
+
+#define loginToken  @"loginToken"
+
+#define loginTokenAuto @"loginTokenAuto"
+
+#define EXAM_TYPE_EXAM  @"exam"
+#define EXAM_TYPE_PACKAGE @"package"
+
+#define WECHAT_APPKEY  @"wx7359e589d604be47"
+#define WECHAT_Secret  @"3baf1193c85774b3fd9d18447d76cab0"
+
+#define UMENG_APPKEY  @"59e5d457677baa7d58000164"
+#define QQ_APPKEY  @"1104922814"
+#define WEIBO_APPKEY  @"3763916581"
+#define WEIBO_Secret @"47e0b337cc47f4270a4df589ff54c9fc"
+
+
+
+#define APP_Version 3
+
+#endif
+
+#ifdef DEBUG
+#define jspush_Production  0
+#else
+#define jspush_Production  1
+#endif
+
+
+#endif /* PrefixHeader_pch */

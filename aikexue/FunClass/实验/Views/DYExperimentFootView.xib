@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DYExperimentFootView">
+            <connections>
+                <outlet property="contentView" destination="3jE-Fy-2wu" id="uf0-t1-6bi"/>
+                <outlet property="coupounLab" destination="f9t-ZW-gnh" id="6zm-0g-bH9"/>
+                <outlet property="payButton" destination="YYT-mG-CcE" id="Eys-VO-02F"/>
+                <outlet property="priceLab" destination="yl8-yd-hym" id="UGo-Kl-p63"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="3jE-Fy-2wu">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yl8-yd-hym">
+                    <rect key="frame" x="5" y="32" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9t-ZW-gnh">
+                    <rect key="frame" x="7" y="32" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYT-mG-CcE">
+                    <rect key="frame" x="304" y="12" width="60" height="40"/>
+                    <color key="backgroundColor" red="0.95686274510000002" green="0.70694284880000002" blue="0.015686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="9U0-ai-HRG"/>
+                        <constraint firstAttribute="width" constant="60" id="SGB-ze-D8h"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="购买">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="3"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="buyClick:" destination="-1" eventType="touchUpInside" id="h0y-dp-xma"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="YYT-mG-CcE" firstAttribute="centerY" secondItem="3jE-Fy-2wu" secondAttribute="centerY" id="1eg-5M-557"/>
+                <constraint firstAttribute="trailing" secondItem="YYT-mG-CcE" secondAttribute="trailing" constant="10" id="ChD-uZ-vLF"/>
+                <constraint firstItem="f9t-ZW-gnh" firstAttribute="leading" secondItem="yl8-yd-hym" secondAttribute="trailing" constant="2" id="DdL-TW-2gD"/>
+                <constraint firstItem="yl8-yd-hym" firstAttribute="leading" secondItem="3jE-Fy-2wu" secondAttribute="leading" constant="5" id="HyY-EC-eVY"/>
+                <constraint firstItem="YYT-mG-CcE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="f9t-ZW-gnh" secondAttribute="trailing" constant="2" id="LXI-H6-cEi"/>
+                <constraint firstItem="f9t-ZW-gnh" firstAttribute="centerY" secondItem="3jE-Fy-2wu" secondAttribute="centerY" id="PlI-2x-fhA"/>
+                <constraint firstItem="yl8-yd-hym" firstAttribute="centerY" secondItem="3jE-Fy-2wu" secondAttribute="centerY" id="XG7-gt-gX7"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-470" y="-184"/>
+        </view>
+    </objects>
+</document>

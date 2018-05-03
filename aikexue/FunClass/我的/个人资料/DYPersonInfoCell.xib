@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DYPersonInfoCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlR-Hr-nxk">
+                        <rect key="frame" x="10" y="22" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Small-arrows" translatesAutoresizingMaskIntoConstraints="NO" id="i8e-eO-Wxj">
+                        <rect key="frame" x="302" y="14" width="8" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="Ae3-A9-xyO"/>
+                            <constraint firstAttribute="height" constant="14" id="GQc-Cd-bk8"/>
+                        </constraints>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z26-pd-wgp">
+                        <rect key="frame" x="278" y="5" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Z26-pd-wgp" secondAttribute="height" multiplier="1:1" id="J4B-Wd-C50"/>
+                        </constraints>
+                    </imageView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未绑定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsA-Ip-5JE">
+                        <rect key="frame" x="254" y="13.5" width="43" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="rsA-Ip-5JE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1CX-aw-yqC"/>
+                    <constraint firstItem="i8e-eO-Wxj" firstAttribute="leading" secondItem="rsA-Ip-5JE" secondAttribute="trailing" constant="5" id="3kp-CT-rcK"/>
+                    <constraint firstItem="Z26-pd-wgp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="3y6-p3-3Zj"/>
+                    <constraint firstAttribute="trailing" secondItem="Z26-pd-wgp" secondAttribute="trailing" constant="10" id="8m4-1n-RTb"/>
+                    <constraint firstItem="jlR-Hr-nxk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="AIg-X4-yWZ"/>
+                    <constraint firstItem="jlR-Hr-nxk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CJg-Dj-sep"/>
+                    <constraint firstItem="i8e-eO-Wxj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KJo-3y-ilb"/>
+                    <constraint firstItem="Z26-pd-wgp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Vdw-tV-YNQ"/>
+                    <constraint firstAttribute="trailing" secondItem="i8e-eO-Wxj" secondAttribute="trailing" constant="10" id="n8K-qc-P2j"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="arrowIcon" destination="i8e-eO-Wxj" id="UjS-8Z-9LE"/>
+                <outlet property="iconImg" destination="Z26-pd-wgp" id="5y6-X4-oTA"/>
+                <outlet property="rowTtitl" destination="jlR-Hr-nxk" id="2AG-sQ-7Cn"/>
+                <outlet property="subTwoTitle" destination="rsA-Ip-5JE" id="ZAk-bP-wwe"/>
+            </connections>
+            <point key="canvasLocation" x="257" y="70"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Small-arrows" width="8" height="14"/>
+    </resources>
+</document>

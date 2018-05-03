@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DYChangeNickNameController">
+            <connections>
+                <outlet property="contentView" destination="Uqs-F1-MhT" id="eWX-Zm-Q8R"/>
+                <outlet property="nickNameTF" destination="6qS-1k-VNn" id="mvg-be-fT4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uqs-F1-MhT">
+                    <rect key="frame" x="0.0" y="84" width="375" height="50"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qS-1k-VNn">
+                            <rect key="frame" x="10" y="10" width="355" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="6qS-1k-VNn" firstAttribute="leading" secondItem="Uqs-F1-MhT" secondAttribute="leading" constant="10" id="717-9F-H0g"/>
+                        <constraint firstAttribute="bottom" secondItem="6qS-1k-VNn" secondAttribute="bottom" constant="10" id="JCR-RH-9Mw"/>
+                        <constraint firstItem="6qS-1k-VNn" firstAttribute="top" secondItem="Uqs-F1-MhT" secondAttribute="top" constant="10" id="ROC-mb-3Fs"/>
+                        <constraint firstAttribute="trailing" secondItem="6qS-1k-VNn" secondAttribute="trailing" constant="10" id="Rqf-q8-RDC"/>
+                        <constraint firstAttribute="height" constant="50" id="cEb-3P-9S7"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4-20个字符,可由中英文字母、数字&quot;_&quot; &quot;-&quot;组成" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wff-eb-BMW">
+                    <rect key="frame" x="10" y="139" width="355" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="FCk-MU-wtx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.1764705882" blue="0.0" alpha="0.71532534250000002" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gC-UL-RjZ">
+                    <rect key="frame" x="37.5" y="194" width="300" height="41"/>
+                    <state key="normal" image="confirm-btn"/>
+                    <connections>
+                        <action selector="comfireClick:" destination="-1" eventType="touchUpInside" id="NqZ-Ve-YmK"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9gC-UL-RjZ" firstAttribute="top" secondItem="Uqs-F1-MhT" secondAttribute="bottom" constant="60" id="1LK-T2-XLB"/>
+                <constraint firstItem="9gC-UL-RjZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1Sc-yx-Pdu"/>
+                <constraint firstItem="wff-eb-BMW" firstAttribute="top" secondItem="Uqs-F1-MhT" secondAttribute="bottom" constant="5" id="5eU-ss-kzs"/>
+                <constraint firstItem="Uqs-F1-MhT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NbE-Fh-3we"/>
+                <constraint firstAttribute="trailing" secondItem="Uqs-F1-MhT" secondAttribute="trailing" id="gNO-3O-8jH"/>
+                <constraint firstItem="Uqs-F1-MhT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="hQa-CI-YHI"/>
+                <constraint firstAttribute="trailing" secondItem="wff-eb-BMW" secondAttribute="trailing" constant="10" id="iZ3-1U-zed"/>
+                <constraint firstItem="wff-eb-BMW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ubR-CJ-gOU"/>
+            </constraints>
+            <point key="canvasLocation" x="8.5" y="12.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="confirm-btn" width="300" height="41"/>
+    </resources>
+</document>
