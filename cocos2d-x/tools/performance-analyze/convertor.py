@@ -44,7 +44,7 @@ class Convertor:
     def __init__(self, src_path, output_path=None):
         self.src_path = self.change_to_abspath(src_path)
         if not os.path.exists(self.src_path):
-            raise KnownException('%s is not existed!' % self.src_path)
+            raise KnownException(f'{self.src_path} is not existed!')
 
         if output_path is None:
             # not specified output path, default use source path
@@ -67,20 +67,18 @@ class Convertor:
         return 256 * (len(col_str) + 1)
 
     def convert_file(self, file_path):
-        f = open(file_path)
-        testData = json.load(f)
-        f.close()
-
+        with open(file_path) as f:
+            testData = json.load(f)
         basename, ext = os.path.splitext(os.path.basename(file_path))
-        dst_file_path = os.path.join(self.output_path, "%s.xls" % basename)
+        dst_file_path = os.path.join(self.output_path, f"{basename}.xls")
         if os.path.isfile(dst_file_path):
             os.remove(dst_file_path)
 
         workbook = xlwt.Workbook(encoding = 'ascii')
 
         default_style = xlwt.Style.easyxf(DEFAULT_STYLE)
-        con_style = xlwt.Style.easyxf("%s%s" % (DEFAULT_STYLE, CONDITION_STYLE))
-        ret_style = xlwt.Style.easyxf("%s%s" % (DEFAULT_STYLE, RESULT_STYLE))
+        con_style = xlwt.Style.easyxf(f"{DEFAULT_STYLE}{CONDITION_STYLE}")
+        ret_style = xlwt.Style.easyxf(f"{DEFAULT_STYLE}{RESULT_STYLE}")
 
         for key in testData.keys():
             if key in BASE_KEYS:
@@ -124,7 +122,7 @@ class Convertor:
                     curCol += 1
 
         workbook.save(dst_file_path)
-        print("%s is generated." % dst_file_path)
+        print(f"{dst_file_path} is generated.")
 
     def do_convert(self):
         if not os.path.exists(self.output_path):
