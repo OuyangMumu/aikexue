@@ -97,10 +97,7 @@ class LintContext:
         known[name].append(f)
       else:
         known[name] = [f]
-    uniq = {}
-    for k,v in known.iteritems():
-      if len(v) == 1:
-        uniq[k] = v[0]
+    uniq = {k: v[0] for k, v in known.iteritems() if len(v) == 1}
     self.uniq = uniq
 
   def in_search_path(self, filename):
@@ -130,7 +127,7 @@ def fix(match, cwd, ctx, fixed):
     return match.group(0)
 
   ctx.errors += 1
-  fix = '#%s "%s"' % (match.group(1), p)
+  fix = f'#{match.group(1)} "{p}"'
   fixed[match.group(0)] = fix
   return fix
 
@@ -150,13 +147,13 @@ def lint_one(header, ctx):
       with open (filename, 'w') as f: f.write(linted)
       print('%s: %d error(s) fixed' % (header, len(fixed)))
     else:
-      print('%s:' % (header))
+      print(f'{header}:')
       for k, v in fixed.iteritems():
         print('\t%s should be %s' % (k, v))
 
 
 def lint(ctx):
-  print('Checking headers in: %s' % ctx.root)
+  print(f'Checking headers in: {ctx.root}')
   for f in ctx.sources:
     lint_one(f, ctx)
 

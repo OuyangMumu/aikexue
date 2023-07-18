@@ -51,11 +51,7 @@ def do_build(app_android_root, build_mode, app_abi, platform):
 
 def build_targets(targets, build_mode, app_abi, api_level):
 
-    if api_level:
-        platform = 'android-%s' % api_level
-    else:
-        platform = None
-
+    platform = f'android-{api_level}' if api_level else None
     build_targets = calculate_build_targets(targets)
 
     app_android_root = ''

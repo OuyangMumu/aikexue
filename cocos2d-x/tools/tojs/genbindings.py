@@ -17,25 +17,13 @@ def _check_ndk_root_env():
     ''' Checking the environment NDK_ROOT, which will be used for building
     '''
 
-    # try:
-    #     NDK_ROOT = os.environ['NDK_ROOT']
-    # except Exception:
-    #     print "NDK_ROOT not defined. Please define NDK_ROOT in your environment."
-    #     sys.exit(1)
-    NDK_ROOT = "C:\\Cocos\\tools\\android-ndk-r10e"
-    return NDK_ROOT
+    return "C:\\Cocos\\tools\\android-ndk-r10e"
 
 def _check_python_bin_env():
     ''' Checking the environment PYTHON_BIN, which will be used for building
     '''
 
-    # try:
-    #     PYTHON_BIN = os.environ['PYTHON_BIN']
-    # except Exception:
-    #     print "PYTHON_BIN not defined, use current python."
-    #     PYTHON_BIN = sys.executable
-    PYTHON_BIN = "C:\\python-32\\python.exe"
-    return PYTHON_BIN
+    return "C:\\python-32\\python.exe"
 
 
 class CmdError(Exception):
